@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tap-test
+  annotations:
+    k8s.v1.cni.cncf.io/networks: tap-network
+spec:
+  containers:
+  - name: test
+    image: docker.io/library/udx-base
+    imagePullPolicy: Never
+    command: ["sh", "-c", "sleep 3600"]
